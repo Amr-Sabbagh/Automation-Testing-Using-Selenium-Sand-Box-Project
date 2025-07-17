@@ -50,9 +50,7 @@ public class FindingTheFirstSearchResultTest {
         By searchResultsElement = By.xpath("(//div//ol/li)[1]//h2//a");
 
         //asserting the first search result is https://www.selenium.dev/documentation/webdriver/
-        Assert.assertEquals(wait.until(d-> {
-                            return d.findElement(searchResultsElement);
-                            }).getAttribute("href"),
+        Assert.assertEquals(wait.until(d-> d.findElement(searchResultsElement)).getAttribute("href"),
                             "https://www.selenium.dev/documentation/webdriver/");
 
     }
