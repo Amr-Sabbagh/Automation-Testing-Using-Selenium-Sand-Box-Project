@@ -32,10 +32,11 @@ public class AssertingOnTwoCheckBoxesTest {
         // checking Checkbox 1
         firstCheckBoxElement.click();
 
-        // locating both checkboxes
-        WebElement secondCheckBoxesElement = driver.findElement(By.xpath("//form/input[2]"));
+        // locating the second checkbox
+        WebElement secondCheckBoxElement = driver.findElement(By.xpath("//form/input[2]"));
 
-        Assert.assertTrue(secondCheckBoxesElement.isSelected()&&firstCheckBoxElement.isSelected());
+        // asserting that both Checkboxes are checked
+        Assert.assertTrue(secondCheckBoxElement.isSelected()&&firstCheckBoxElement.isSelected());
     }
 
     @AfterMethod
