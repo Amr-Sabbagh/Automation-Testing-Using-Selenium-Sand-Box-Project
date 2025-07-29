@@ -1,6 +1,5 @@
 package pages;
 
-import engine.Bot;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
@@ -11,28 +10,23 @@ public class DuckDuckGoHome {
     By searchBoxLocator = By.xpath("//div/input[@class='searchbox_input__rnFzM']");
     By searchButtonLocator = By.xpath("//div/button[@type='submit']");
 
-//    WebDriver driver;
-//    Wait<WebDriver> wait;
+    WebDriver driver;
+    Wait<WebDriver> wait;
 
-    Bot bot = new Bot();
-
-//    public DuckDuckGoHome(WebDriver driver, Wait<WebDriver> wait) {
-//        this.driver = driver;
-//        this.wait = wait;
-//    }
+    public DuckDuckGoHome(WebDriver driver, Wait<WebDriver> wait) {
+        this.driver = driver;
+        this.wait = wait;
+    }
 
     public void navigateToDuckDuckGo() {
-//        driver.navigate().to(duckDuckGoUrl);
-        bot.navigateTo(duckDuckGoUrl);
+        driver.navigate().to(duckDuckGoUrl);
     }
 
     public void typeInSearchBox(String searchText) {
-//        driver.findElement(searchBoxLocator).sendKeys(searchText);
-        bot.type(searchBoxLocator, searchText);
+        driver.findElement(searchBoxLocator).sendKeys(searchText);
     }
 
     public void clickOnTheSearchButton() {
-//        driver.findElement(searchButtonLocator).click();
-        bot.click(searchButtonLocator);
+        driver.findElement(searchButtonLocator).click();
     }
 }

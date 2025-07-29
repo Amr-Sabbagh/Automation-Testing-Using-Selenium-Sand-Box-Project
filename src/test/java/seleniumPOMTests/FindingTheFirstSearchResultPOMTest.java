@@ -1,6 +1,5 @@
 package seleniumPOMTests;
 
-import engine.Bot;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,29 +16,27 @@ import java.time.Duration;
 
 public class FindingTheFirstSearchResultPOMTest {
     //declaring a WebDriver instance
-    Bot bot;
+    WebDriver driver;
 
-//    //declaring an explicit wait instance
-//    Wait<WebDriver> wait;
+    //declaring an explicit wait instance
+    Wait<WebDriver> wait;
 
     @BeforeMethod
     public void beforeMethod(){
-//        //opening the Chrome browser
-//        driver = new ChromeDriver();
-//
-//        //setting up the explicit wait
-//        wait = new FluentWait<>(driver)
-//                .withTimeout(Duration.ofSeconds(2))
-//                .pollingEvery(Duration.ofMillis(300))
-//                .ignoring(NoSuchElementException.class);
-        bot = new Bot();
+        //opening the Chrome browser
+        driver = new ChromeDriver();
 
+        //setting up the explicit wait
+        wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(2))
+                .pollingEvery(Duration.ofMillis(300))
+                .ignoring(NoSuchElementException.class);
     }
 
     @Test
     public void task3POM() {
-        DuckDuckGoHome duckDuckGoHome = new DuckDuckGoHome();
-        DuckDuckGoSearchResult duckDuckGoSearchResult = new DuckDuckGoSearchResult();
+        DuckDuckGoHome duckDuckGoHome = new DuckDuckGoHome(driver, wait);
+        DuckDuckGoSearchResult duckDuckGoSearchResult = new DuckDuckGoSearchResult(driver, wait);
 
         duckDuckGoHome.navigateToDuckDuckGo();
         duckDuckGoHome.typeInSearchBox("Selenium WebDriver");
@@ -54,6 +51,6 @@ public class FindingTheFirstSearchResultPOMTest {
     @AfterMethod
     public void afterMethod() {
         //closing the browser
-        bot.quitTheBrowser();
+        driver.quit();
     }
 }
