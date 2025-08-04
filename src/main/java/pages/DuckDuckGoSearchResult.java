@@ -8,8 +8,8 @@ public class DuckDuckGoSearchResult {
 
     By searchResultsElement = By.xpath("(//div//ol/li)[1]//h2//a");
 
-    WebDriver driver;
-    Wait<WebDriver> wait;
+    protected final WebDriver driver;
+    protected final Wait<WebDriver> wait;
 
     public DuckDuckGoSearchResult(WebDriver driver, Wait<WebDriver> wait) {
         this.driver = driver;

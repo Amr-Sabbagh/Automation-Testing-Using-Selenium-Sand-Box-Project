@@ -21,6 +21,9 @@ public class FindingTheFirstSearchResultPOMTest {
     //declaring an explicit wait instance
     Wait<WebDriver> wait;
 
+    //declaring a DuckDuckGoHome instance
+    DuckDuckGoHome duckDuckGoHome ;
+
     @BeforeMethod
     public void beforeMethod(){
         //opening the Chrome browser
@@ -31,16 +34,18 @@ public class FindingTheFirstSearchResultPOMTest {
                 .withTimeout(Duration.ofSeconds(2))
                 .pollingEvery(Duration.ofMillis(300))
                 .ignoring(NoSuchElementException.class);
+
+        //setting up the DuckDuckGoHome page object
+        duckDuckGoHome = new DuckDuckGoHome(driver, wait);
+
     }
 
     @Test
     public void task3POM() {
-        DuckDuckGoHome duckDuckGoHome = new DuckDuckGoHome(driver, wait);
-        DuckDuckGoSearchResult duckDuckGoSearchResult = new DuckDuckGoSearchResult(driver, wait);
 
         duckDuckGoHome.navigateToDuckDuckGo();
         duckDuckGoHome.typeInSearchBox("Selenium WebDriver");
-        duckDuckGoHome.clickOnTheSearchButton();
+        DuckDuckGoSearchResult duckDuckGoSearchResult = duckDuckGoHome.clickOnTheSearchButton();
 
         //asserting the first search result is https://www.selenium.dev/documentation/webdriver/
         Assert.assertEquals(duckDuckGoSearchResult.getFirstSearchResultLink(),

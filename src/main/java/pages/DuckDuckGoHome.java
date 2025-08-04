@@ -5,13 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
 
 public class DuckDuckGoHome {
-    String duckDuckGoUrl = "https://duckduckgo.com/";
 
-    By searchBoxLocator = By.xpath("//div/input[@class='searchbox_input__rnFzM']");
-    By searchButtonLocator = By.xpath("//div/button[@type='submit']");
+    protected WebDriver driver;
+    protected Wait<WebDriver> wait;
 
-    WebDriver driver;
-    Wait<WebDriver> wait;
+    private final By searchBoxLocator = By.xpath("//div/input[@class='searchbox_input__rnFzM']");
+    private final By searchButtonLocator = By.xpath("//div/button[@type='submit']");
+
 
     public DuckDuckGoHome(WebDriver driver, Wait<WebDriver> wait) {
         this.driver = driver;
@@ -19,14 +19,17 @@ public class DuckDuckGoHome {
     }
 
     public void navigateToDuckDuckGo() {
-        driver.navigate().to(duckDuckGoUrl);
+
+        driver.navigate().to("https://duckduckgo.com/");
     }
 
     public void typeInSearchBox(String searchText) {
+
         driver.findElement(searchBoxLocator).sendKeys(searchText);
     }
 
-    public void clickOnTheSearchButton() {
+    public DuckDuckGoSearchResult clickOnTheSearchButton() {
         driver.findElement(searchButtonLocator).click();
+        return new DuckDuckGoSearchResult(driver, wait);
     }
 }
