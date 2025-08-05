@@ -43,7 +43,7 @@ public class FindingTheFirstSearchResultPOMTest {
     }
 
     @Test
-    public void firstSearchResultTest() {
+    public void firstSearchResultPOMTest() {
 
         duckDuckGoHome.navigateToDuckDuckGo();
         duckDuckGoHome.typeInSearchBox("Selenium WebDriver");

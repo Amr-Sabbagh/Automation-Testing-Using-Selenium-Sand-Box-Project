@@ -20,7 +20,7 @@ public class AssertingOnTwoCheckBoxesFluentPOMTest {
     }
 
     @Test
-    public void checkBoxesTest() {
+    public void checkBoxesFluentPOMTest() {
         // Navigate to the CheckBoxes page and click the first checkbox
         checkBoxesFluentPage.navigateToCheckBoxesPage()
                             .clickTheFirstCheckBox();

@@ -24,7 +24,7 @@ public class DragAndDropPOMTest {
     }
 
     @Test
-    public void dragAndDropTest() {
+    public void dragAndDropPOMTest() {
 
         // Navigate to the Drag and Drop page
         dragAndDropPage.navigateToDragAndDropPage();

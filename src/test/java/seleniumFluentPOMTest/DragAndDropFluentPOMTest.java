@@ -24,7 +24,7 @@ public class DragAndDropFluentPOMTest {
     }
 
     @Test
-    public void dragAndDropTest() {
+    public void dragAndDropFluentPOMTest() {
 
         // Navigate to the Drag and Drop page and Perform the drag and drop action
         WebElement dropAreaElement = dragAndDropFluentPage.navigateToDragAndDropPage()

@@ -10,7 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class DragAndDropTest {
+public class DragAndDropFlatTest {
 
     //declaring a WebDriver instance
     WebDriver driver;
@@ -24,7 +24,7 @@ public class DragAndDropTest {
     }
 
     @Test
-    public void task9(){
+    public void dragAndDropFlatTest(){
         // navigate to the page
         driver.navigate().to("https://jqueryui.com/resources/demos/droppable/default.html");
 

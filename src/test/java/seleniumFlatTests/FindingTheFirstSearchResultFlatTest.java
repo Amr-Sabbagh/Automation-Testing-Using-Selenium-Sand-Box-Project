@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 
-public class FindingTheFirstSearchResultTest {
+public class FindingTheFirstSearchResultFlatTest {
 
     //declaring a WebDriver instance
     WebDriver driver;
@@ -33,7 +33,7 @@ public class FindingTheFirstSearchResultTest {
     }
 
     @Test
-    public void task3(){
+    public void firstSearchResultFlatTest(){
 
         //navigate to the page
         driver.navigate().to("https://duckduckgo.com/");

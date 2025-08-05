@@ -41,7 +41,7 @@ public class FindingTheFirstSearchResultFluentPOMTest {
     }
 
     @Test
-    public void firstSearchResultTest() {
+    public void firstSearchResultFluentPOMTest() {
 
         duckDuckGoSearchResultFluentPage = duckDuckGoHomeFluentPage.navigateToDuckDuckGo()
                                            .typeInSearchBox("Selenium WebDriver")

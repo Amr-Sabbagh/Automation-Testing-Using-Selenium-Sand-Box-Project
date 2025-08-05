@@ -20,7 +20,7 @@ public class AssertingOnTwoCheckBoxesPOMTest {
     }
 
     @Test
-    public void checkBoxesTest() {
+    public void checkBoxesPOMTest() {
         // Navigate to the CheckBoxes page
         checkBoxesPage.navigateToCheckBoxesPage();
 

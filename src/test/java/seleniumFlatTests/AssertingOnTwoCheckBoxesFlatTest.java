@@ -9,7 +9,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class AssertingOnTwoCheckBoxesTest {
+public class AssertingOnTwoCheckBoxesFlatTest {
     //declaring a WebDriver instance
     WebDriver driver;
 
@@ -22,7 +22,7 @@ public class AssertingOnTwoCheckBoxesTest {
     }
 
     @Test
-    public void task6(){
+    public void checkBoxesFlatTest(){
         // navigate to the page
         driver.navigate().to("https://the-internet.herokuapp.com/checkboxes");
 
