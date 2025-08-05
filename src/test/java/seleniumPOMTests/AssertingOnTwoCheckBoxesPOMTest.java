@@ -17,13 +17,13 @@ public class AssertingOnTwoCheckBoxesPOMTest {
         // Initialize the WebDriver and CheckBoxesPage
         driver = new ChromeDriver();
         checkBoxesPage = new CheckBoxesPage(driver);
-
-        // Navigate to the CheckBoxes page
-        checkBoxesPage.navigateToCheckBoxesPage();
     }
 
     @Test
     public void checkBoxesTest() {
+        // Navigate to the CheckBoxes page
+        checkBoxesPage.navigateToCheckBoxesPage();
+
         // Click the first checkbox
         checkBoxesPage.clickTheFirstCheckBox();
 

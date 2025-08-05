@@ -9,8 +9,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pomPages.DuckDuckGoHome;
-import pomPages.DuckDuckGoSearchResult;
+import pomPages.DuckDuckGoHomePage;
+import pomPages.DuckDuckGoSearchResultPage;
 
 import java.time.Duration;
 
@@ -22,8 +22,8 @@ public class FindingTheFirstSearchResultPOMTest {
     Wait<WebDriver> wait;
 
     //declaring a DuckDuckGoHome instance
-    DuckDuckGoHome duckDuckGoHome ;
-    DuckDuckGoSearchResult duckDuckGoSearchResult;
+    DuckDuckGoHomePage duckDuckGoHome ;
+    DuckDuckGoSearchResultPage duckDuckGoSearchResult;
 
     @BeforeMethod
     public void beforeMethod(){
@@ -37,8 +37,8 @@ public class FindingTheFirstSearchResultPOMTest {
                 .ignoring(NoSuchElementException.class);
 
         //setting up the DuckDuckGoHome page object
-        duckDuckGoHome = new DuckDuckGoHome(driver);
-        duckDuckGoSearchResult = new DuckDuckGoSearchResult(driver, wait);
+        duckDuckGoHome = new DuckDuckGoHomePage(driver);
+        duckDuckGoSearchResult = new DuckDuckGoSearchResultPage(driver, wait);
 
     }
 
