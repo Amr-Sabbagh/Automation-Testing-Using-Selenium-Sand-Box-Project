@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.DragAndDropPage;
+import pomPages.DragAndDropPage;
 
 public class DragAndDropPOMTest {
 
@@ -24,7 +24,7 @@ public class DragAndDropPOMTest {
     }
 
     @Test
-    public void task9POM() {
+    public void dragAndDropTest() {
 
         // Navigate to the Drag and Drop page
         dragAndDropPage.navigateToDragAndDropPage();

@@ -9,8 +9,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.DuckDuckGoHome;
-import pages.DuckDuckGoSearchResult;
+import pomPages.DuckDuckGoHome;
+import pomPages.DuckDuckGoSearchResult;
 
 import java.time.Duration;
 
@@ -23,6 +23,7 @@ public class FindingTheFirstSearchResultPOMTest {
 
     //declaring a DuckDuckGoHome instance
     DuckDuckGoHome duckDuckGoHome ;
+    DuckDuckGoSearchResult duckDuckGoSearchResult;
 
     @BeforeMethod
     public void beforeMethod(){
@@ -32,20 +33,21 @@ public class FindingTheFirstSearchResultPOMTest {
         //setting up the explicit wait
         wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(2))
-                .pollingEvery(Duration.ofMillis(300))
+                .pollingEvery(Duration.ofMillis(200))
                 .ignoring(NoSuchElementException.class);
 
         //setting up the DuckDuckGoHome page object
-        duckDuckGoHome = new DuckDuckGoHome(driver, wait);
+        duckDuckGoHome = new DuckDuckGoHome(driver);
+        duckDuckGoSearchResult = new DuckDuckGoSearchResult(driver, wait);
 
     }
 
     @Test
-    public void task3POM() {
+    public void firstSearchResultTest() {
 
         duckDuckGoHome.navigateToDuckDuckGo();
         duckDuckGoHome.typeInSearchBox("Selenium WebDriver");
-        DuckDuckGoSearchResult duckDuckGoSearchResult = duckDuckGoHome.clickOnTheSearchButton();
+        duckDuckGoHome.clickOnTheSearchButton();
 
         //asserting the first search result is https://www.selenium.dev/documentation/webdriver/
         Assert.assertEquals(duckDuckGoSearchResult.getFirstSearchResultLink(),

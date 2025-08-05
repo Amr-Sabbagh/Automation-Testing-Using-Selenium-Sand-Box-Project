@@ -1,21 +1,18 @@
-package pages;
+package pomPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Wait;
 
 public class DuckDuckGoHome {
 
     protected WebDriver driver;
-    protected Wait<WebDriver> wait;
 
     private final By searchBoxLocator = By.xpath("//div/input[@class='searchbox_input__rnFzM']");
     private final By searchButtonLocator = By.xpath("//div/button[@type='submit']");
 
 
-    public DuckDuckGoHome(WebDriver driver, Wait<WebDriver> wait) {
+    public DuckDuckGoHome(WebDriver driver) {
         this.driver = driver;
-        this.wait = wait;
     }
 
     public void navigateToDuckDuckGo() {
@@ -28,8 +25,7 @@ public class DuckDuckGoHome {
         driver.findElement(searchBoxLocator).sendKeys(searchText);
     }
 
-    public DuckDuckGoSearchResult clickOnTheSearchButton() {
+    public void clickOnTheSearchButton() {
         driver.findElement(searchButtonLocator).click();
-        return new DuckDuckGoSearchResult(driver, wait);
     }
 }

@@ -28,7 +28,7 @@ public class FindingTheFirstSearchResultTest {
         //setting up the explicit wait
         wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(2))
-                .pollingEvery(Duration.ofMillis(300))
+                .pollingEvery(Duration.ofMillis(200))
                 .ignoring(NoSuchElementException.class);
     }
 
