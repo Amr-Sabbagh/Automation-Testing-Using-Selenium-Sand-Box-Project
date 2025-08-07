@@ -38,7 +38,7 @@ public class DragAndDropFlatTest {
         new Actions(driver).dragAndDrop(DraggableElement, DropAreaElement).perform();
 
         //asserting that the draggable text changed to "Dropped!"
-        Assert.assertEquals(DropAreaElement.getText(),"Dropped!");
+        Assert.assertEquals(DropAreaElement.getText(),"Droppedd!");
 
 
     }
