@@ -1,32 +1,33 @@
-package pomPages;
+package botPomPages;
 
+import engine.Bot;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-public class DuckDuckGoHomePage {
+public class DuckDuckGoHomeBotPage {
 
-    protected WebDriver driver;
+    protected Bot bot;
 
     private final By searchBoxLocator = By.xpath("//div/input[@class='searchbox_input__rnFzM']");
     private final By searchButtonLocator = By.xpath("//div/button[@type='submit']");
 
 
-    public DuckDuckGoHomePage(WebDriver driver) {
+    public DuckDuckGoHomeBotPage(Bot bot) {
 
-        this.driver = driver;
+        this.bot = bot;
     }
 
     public void navigateToDuckDuckGo() {
 
-        driver.navigate().to("https://duckduckgo.com/");
+        bot.navigateTo("https://duckduckgo.com/");
     }
 
     public void typeInSearchBox(String searchText) {
 
-        driver.findElement(searchBoxLocator).sendKeys(searchText);
+        bot.type(searchBoxLocator,searchText);
     }
 
     public void clickOnTheSearchButton() {
-        driver.findElement(searchButtonLocator).click();
+
+        bot.click(searchButtonLocator);
     }
 }
