@@ -34,7 +34,7 @@
                 <version>3.5.3</version>
                 <configuration>
                     <parallel>classes</parallel> <!-- or methods -->
-                    <threadCount>3</threadCount>
+                    <threadCount>4</threadCount>
                     <useUnlimitedThreads>false</useUnlimitedThreads>
                 </configuration>
             </plugin>
