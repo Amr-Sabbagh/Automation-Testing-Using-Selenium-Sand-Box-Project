@@ -1,6 +1,5 @@
-package seleniumFluentPOMTest;
+package seleniumPomTests;
 
-import fluentPOMPages.DragAndDropFluentPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,11 +7,12 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pomPages.DragAndDropPage;
 
-public class DragAndDropFluentPOMTest {
+public class DragAndDropPomTest {
 
     WebDriver driver;
-    DragAndDropFluentPage dragAndDropFluentPage;
+    DragAndDropPage dragAndDropPage;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -20,15 +20,17 @@ public class DragAndDropFluentPOMTest {
         driver = new ChromeDriver();
 
         // Initialize the DragAndDropPage object
-        dragAndDropFluentPage = new DragAndDropFluentPage(driver);
+        dragAndDropPage = new DragAndDropPage(driver);
     }
 
     @Test
-    public void dragAndDropFluentPOMTest() {
+    public void dragAndDropPOMTest() {
 
-        // Navigate to the Drag and Drop page and Perform the drag and drop action
-        WebElement dropAreaElement = dragAndDropFluentPage.navigateToDragAndDropPage()
-                                                          .dragAndDropTheElement();
+        // Navigate to the Drag and Drop page
+        dragAndDropPage.navigateToDragAndDropPage();
+
+        // Perform the drag and drop action
+        WebElement dropAreaElement = dragAndDropPage.dragAndDropTheElement();
 
         // Assert that the text in the drop area has changed to "Dropped!"
         Assert.assertEquals(dropAreaElement.getText(),"Dropped!");

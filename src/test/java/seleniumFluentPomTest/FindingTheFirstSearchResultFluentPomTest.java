@@ -1,7 +1,7 @@
-package seleniumFluentPOMTest;
+package seleniumFluentPomTest;
 
-import fluentPOMPages.DuckDuckGoHomeFluentPage;
-import fluentPOMPages.DuckDuckGoSearchResultFluentPage;
+import fluentPomPages.DuckDuckGoHomeFluentPage;
+import fluentPomPages.DuckDuckGoSearchResultFluentPage;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class FindingTheFirstSearchResultFluentPOMTest {
+public class FindingTheFirstSearchResultFluentPomTest {
     //declaring a WebDriver instance
     WebDriver driver;
 
@@ -33,7 +33,7 @@ public class FindingTheFirstSearchResultFluentPOMTest {
         //setting up the explicit wait
         wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(2))
-                .pollingEvery(Duration.ofMillis(200))
+                .pollingEvery(Duration.ofMillis(300))
                 .ignoring(NoSuchElementException.class);
 
         //setting up the DuckDuckGoHome page object

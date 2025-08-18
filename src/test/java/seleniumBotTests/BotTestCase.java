@@ -1,16 +1,16 @@
-package SeleniumBotTests;
+package seleniumBotTests;
 
-import engine.Bot;
+import engine.FluentBot;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class BotTestCase {
 
-    Bot bot;
+    FluentBot bot;
 
     @BeforeMethod
     public void before() {
-        bot = new Bot();
+        bot = new FluentBot();
     }
 
     @AfterMethod

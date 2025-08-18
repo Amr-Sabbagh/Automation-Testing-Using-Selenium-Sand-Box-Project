@@ -1,33 +1,46 @@
 package botPomPages;
 
-import engine.Bot;
+import engine.FluentBot;
 import org.openqa.selenium.By;
 
 public class DuckDuckGoHomeBotPage {
 
-    protected Bot bot;
+    protected FluentBot bot;
 
     private final By searchBoxLocator = By.xpath("//div/input[@class='searchbox_input__rnFzM']");
     private final By searchButtonLocator = By.xpath("//div/button[@type='submit']");
 
 
-    public DuckDuckGoHomeBotPage(Bot bot) {
+    public DuckDuckGoHomeBotPage(FluentBot bot) {
 
         this.bot = bot;
     }
 
-    public void navigateToDuckDuckGo() {
+    public DuckDuckGoHomeBotPage navigateToDuckDuckGo() {
 
         bot.navigateTo("https://duckduckgo.com/");
+        return this;
     }
 
-    public void typeInSearchBox(String searchText) {
+//    public DuckDuckGoHomeBotPage typeInSearchBox(String searchText) {
+//
+//        bot.type(searchBoxLocator,searchText);
+//        return this;
+//    }
 
-        bot.type(searchBoxLocator,searchText);
-    }
+//    public DuckDuckGoSearchResultBotPage clickOnTheSearchButton() {
+//
+//        bot.click(searchButtonLocator);
+//
+//        return new DuckDuckGoSearchResultBotPage(bot);
+//    }
 
-    public void clickOnTheSearchButton() {
+    public DuckDuckGoSearchResultBotPage search(String searchText){
+        bot.type(searchBoxLocator, searchText)
+           .click(searchButtonLocator);
 
-        bot.click(searchButtonLocator);
+        return new DuckDuckGoSearchResultBotPage(bot);
+//        return typeInSearchBox(searchText)
+//                .clickOnTheSearchButton();
     }
 }

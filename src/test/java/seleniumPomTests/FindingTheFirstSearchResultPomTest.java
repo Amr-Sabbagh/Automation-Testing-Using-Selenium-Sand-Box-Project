@@ -1,4 +1,4 @@
-package seleniumPOMTests;
+package seleniumPomTests;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +14,7 @@ import pomPages.DuckDuckGoSearchResultPage;
 
 import java.time.Duration;
 
-public class FindingTheFirstSearchResultPOMTest {
+public class FindingTheFirstSearchResultPomTest {
     //declaring a WebDriver instance
     WebDriver driver;
 
@@ -33,7 +33,7 @@ public class FindingTheFirstSearchResultPOMTest {
         //setting up the explicit wait
         wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(2))
-                .pollingEvery(Duration.ofMillis(200))
+                .pollingEvery(Duration.ofMillis(300))
                 .ignoring(NoSuchElementException.class);
 
         //setting up the DuckDuckGoHome page object

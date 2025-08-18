@@ -12,21 +12,21 @@ import org.openqa.selenium.support.ui.Wait;
 
 import java.time.Duration;
 
-public class Bot {
+public class FluentBot {
     protected WebDriver driver;
     protected Wait<WebDriver> wait;
 
-    public Bot() {
+    public FluentBot() {
         driver = initDriver();
         wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(2))
-                .pollingEvery(Duration.ofMillis(200))
+                .withTimeout(Duration.ofSeconds(1))
+                .pollingEvery(Duration.ofMillis(300))
                 .ignoring(NoSuchElementException.class);
     }
 
     private WebDriver initDriver() {
         WebDriver driver;
-        String browser = System.getProperty("browser", "chrome");
+        String browser = System.getProperty("browser", "chrome").toLowerCase();
         switch (browser) {
             case "firefox" -> driver = new FirefoxDriver();
             case "safari" -> driver = new SafariDriver();
@@ -36,28 +36,34 @@ public class Bot {
         return driver;
     }
 
-    public void navigateTo(String url) {
+    public FluentBot navigateTo(String url) {
+
         driver.navigate().to(url);
+        return this;
     }
 
     public void quit() {
+
         driver.quit();
     }
 
-    public void click(By locator) {
+    public FluentBot click(By locator) {
         wait.until(d -> {
             d.findElement(locator).click();
             return true;
         });
+        return this;
     }
 
-    public void type(By locator, String text) {
+    public FluentBot type(By locator, String text) {
         wait.until(d -> {
             d.findElement(locator).clear();
             d.findElement(locator).sendKeys(text);
             return true;
         });
+        return this;
     }
+
 
     public String getAttribute(By locator, String attribute) {
         return wait.until(d -> d.findElement(locator).getAttribute(attribute));
