@@ -9,7 +9,7 @@ public class DuckDuckGoHomeFluentPage {
     protected WebDriver driver;
     protected Wait<WebDriver> wait;
 
-    private final By searchBoxLocator = By.xpath("//div/input[@class='searchbox_input__rnFzM']");
+    private final By searchBoxLocator = By.id("searchbox_input");
     private final By searchButtonLocator = By.xpath("//div/button[@type='submit']");
 
 

@@ -39,7 +39,7 @@ public class FindingTheFirstSearchResultFlatTest {
         driver.navigate().to("https://duckduckgo.com/");
 
         //locating the search box
-        By searchBoxLocator = By.xpath("//div/input[@class='searchbox_input__rnFzM']");
+        By searchBoxLocator = By.id("searchbox_input");
         driver.findElement(searchBoxLocator).sendKeys("Selenium WebDriver");
 
         //locating the search button
