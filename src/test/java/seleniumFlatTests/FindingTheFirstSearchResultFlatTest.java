@@ -29,7 +29,7 @@ public class FindingTheFirstSearchResultFlatTest {
         wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(2))
                 .pollingEvery(Duration.ofMillis(200))
-                .ignoring(NoSuchElementException.class);
+                .ignoring(NoSuchElementException.class,ElementNotInteractableException.class);
     }
 
     @Test
@@ -44,7 +44,10 @@ public class FindingTheFirstSearchResultFlatTest {
 
         //locating the search button
         By searchButtonLocator = By.xpath("//div/button[@type='submit']");
-        driver.findElement(searchButtonLocator).click();
+        wait.until(d -> {
+            d.findElement(searchButtonLocator).click();
+            return true;
+        });
 
         //locating search result elements
         By searchResultsElement = By.xpath("(//div//ol/li)[1]//h2//a");

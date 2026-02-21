@@ -1,5 +1,6 @@
 package seleniumPomTests;
 
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -34,10 +35,10 @@ public class FindingTheFirstSearchResultPomTest {
         wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(2))
                 .pollingEvery(Duration.ofMillis(300))
-                .ignoring(NoSuchElementException.class);
+                .ignoring(NoSuchElementException.class, ElementNotInteractableException.class);
 
         //setting up the DuckDuckGoHome page object
-        duckDuckGoHome = new DuckDuckGoHomePage(driver);
+        duckDuckGoHome = new DuckDuckGoHomePage(driver,wait);
         duckDuckGoSearchResult = new DuckDuckGoSearchResultPage(driver, wait);
 
     }

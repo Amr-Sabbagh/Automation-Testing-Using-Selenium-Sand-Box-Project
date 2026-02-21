@@ -33,7 +33,7 @@ public class DuckDuckGoHomeFluentPage {
 
     public DuckDuckGoSearchResultFluentPage clickOnTheSearchButton() {
 
-        driver.findElement(searchButtonLocator).click();
+        wait.until(d->{d.findElement(searchButtonLocator).click(); return true;});
         return new DuckDuckGoSearchResultFluentPage(driver, wait); // Assuming you will handle the Wait in the next page
     }
 }
